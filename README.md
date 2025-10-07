@@ -45,51 +45,6 @@ Key Highlights:
 | Gateway | NGINX Ingress Controller |
 
 ---
-
-## 🧩 Repository Structure
-
-```bash
-kubernetes-microservices-deploy/
-│
-├── .github/
-│   └── workflows/
-│       └── ci-cd.yml                # GitHub Actions pipeline
-│
-├── helm/
-│   ├── Chart.yaml                   # Helm chart metadata
-│   ├── values-dev.yaml              # Dev environment configuration
-│   ├── values-prod.yaml             # Prod environment configuration
-│   └── templates/
-│       ├── deployment.yaml
-│       ├── service.yaml
-│       ├── ingress.yaml
-│       └── configmap.yaml
-│
-├── infra/
-│   ├── terraform/                   # Optional: GKE cluster provisioning
-│   └── argocd/
-│       ├── application.yaml         # ArgoCD application definition
-│       └── project.yaml             # ArgoCD project scope
-│
-├── services/
-│   ├── auth-service/
-│   │   ├── Dockerfile
-│   │   └── src/
-│   ├── product-service/
-│   │   ├── Dockerfile
-│   │   └── src/
-│   └── order-service/
-│       ├── Dockerfile
-│       └── src/
-│
-├── docs/
-│   └── diagram.png                  # Architecture diagram
-│
-└── README.md
-
-
-
-
 ## 🔄 CI/CD Workflow (GitHub Actions + ArgoCD)
 GitHub Actions (CI)
 Triggered on every push or PR:
@@ -143,6 +98,54 @@ Integrated monitoring stack:
 Prometheus – Metrics collection from services
 Grafana – Dashboard for visualization
 Cloud Monitoring (GCP) – Logs and alerts
+
+---
+
+## 🧩 Repository Structure
+
+```bash
+kubernetes-microservices-deploy/
+│
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml                # GitHub Actions pipeline
+│
+├── helm/
+│   ├── Chart.yaml                   # Helm chart metadata
+│   ├── values-dev.yaml              # Dev environment configuration
+│   ├── values-prod.yaml             # Prod environment configuration
+│   └── templates/
+│       ├── deployment.yaml
+│       ├── service.yaml
+│       ├── ingress.yaml
+│       └── configmap.yaml
+│
+├── infra/
+│   ├── terraform/                   # Optional: GKE cluster provisioning
+│   └── argocd/
+│       ├── application.yaml         # ArgoCD application definition
+│       └── project.yaml             # ArgoCD project scope
+│
+├── services/
+│   ├── auth-service/
+│   │   ├── Dockerfile
+│   │   └── src/
+│   ├── product-service/
+│   │   ├── Dockerfile
+│   │   └── src/
+│   └── order-service/
+│       ├── Dockerfile
+│       └── src/
+│
+├── docs/
+│   └── diagram.png                  # Architecture diagram
+│
+└── README.md
+
+
+
+
+
 
 
 
