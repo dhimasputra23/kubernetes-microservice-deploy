@@ -84,7 +84,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/<your-username>/kubernetes-microservices-deploy.git'
+    repoURL: 'https://github.com/dhimasputra23/kubernetes-microservices-deploy.git'
     targetRevision: main
     path: helm
   destination:
@@ -99,7 +99,7 @@ spec:
 ---
 
 
-📊 Observability
+##  📊 Observability
 Integrated monitoring stack:
 Prometheus – Metrics collection from services
 Grafana – Dashboard for visualization
