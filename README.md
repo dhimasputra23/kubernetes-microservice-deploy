@@ -90,7 +90,7 @@ kubernetes-microservices-deploy/
 
 
 
-🔄 CI/CD Workflow (GitHub Actions + ArgoCD)
+## 🔄 CI/CD Workflow (GitHub Actions + ArgoCD)
 GitHub Actions (CI)
 Triggered on every push or PR:
 Build & tag Docker images
@@ -103,7 +103,7 @@ Automatically syncs updates to GKE cluster
 Provides rollback, health checks, and visual dashboards
 
 
-🧰 Helm Deployment Commands (Manual Mode)
+## 🧰 Helm Deployment Commands (Manual Mode)
 # Create namespace
 kubectl create namespace dev
 
@@ -116,7 +116,7 @@ helm upgrade microservices ./helm -n dev -f helm/values-dev.yaml
 # Rollback if needed
 helm rollback microservices <revision-number>
 
-🧩 ArgoCD Application Example
+## 🧩 ArgoCD Application Example
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
