@@ -86,3 +86,65 @@ kubernetes-microservices-deploy/
 │   └── diagram.png                  # Architecture diagram
 │
 └── README.md
+
+
+
+
+🔄 CI/CD Workflow (GitHub Actions + ArgoCD)
+GitHub Actions (CI)
+Triggered on every push or PR:
+Build & tag Docker images
+Push to Google Artifact Registry
+Update Helm values.yaml image tag
+Commit back changes to main branch
+ArgoCD (CD)
+Watches Git repo for Helm chart changes
+Automatically syncs updates to GKE cluster
+Provides rollback, health checks, and visual dashboards
+
+
+🧰 Helm Deployment Commands (Manual Mode)
+# Create namespace
+kubectl create namespace dev
+
+# Install Helm chart
+helm install microservices ./helm -n dev -f helm/values-dev.yaml
+
+# Upgrade deployment
+helm upgrade microservices ./helm -n dev -f helm/values-dev.yaml
+
+# Rollback if needed
+helm rollback microservices <revision-number>
+
+🧩 ArgoCD Application Example
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: microservices-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/<your-username>/kubernetes-microservices-deploy.git'
+    targetRevision: main
+    path: helm
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+
+
+📊 Observability
+Integrated monitoring stack:
+Prometheus – Metrics collection from services
+Grafana – Dashboard for visualization
+Cloud Monitoring (GCP) – Logs and alerts
+
+
+
+
+
